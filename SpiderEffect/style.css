@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.banner{
+    position: relative;
+    background-color:rgb(8, 8, 8);
+    width: 100%;
+    height: 100vh;
+    
+
+}
+.banner h1{
+    font-size:30vw;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top:50%;
+    left:50%;
+
+}
+.banner #dotscanvas{
+    position: absolute;
+    background-color:transparent;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* So that use can mange the content in the website*/
+    pointer-events: none;
+}
