@@ -1,31 +1,27 @@
-// Path which is going to be updated when we hover over the string
-var path='M 10 100 Q 500 100  990 100';
-// Path which is going to be used when mouse leaves the screen.
-var finalpath="M 10 100 Q 500 100  990 100" 
+// Original path when the string is at rest (centered)
+var path = 'M 10 25 Q 500 10 990 25';
+var finalpath = "M 10 25 Q 500 25 990 25";
 
-// Querryselector is used to select the first element within the document that matches a specified CSS selector or group of selectors.
-var string=document.querySelector('#string');
+// Select the string element
+var string = document.querySelector('#string');
 
+// Event listener for when the mouse moves over the string
+string.addEventListener("mousemove", function(dets) {
+    // Adjusting the y-coordinate to keep it centered
+    // getBoundingClientRect().top tells us how far the top of an element is from the top edge of the viewport.
+    path = `M 10 25 Q ${dets.x} ${dets.y - string.getBoundingClientRect().top} 990 25`;
+    gsap.to("svg path", {
+        attr: { d: path },
+        duration: 1.5,
+        ease: "power3.out",
+    });
+});
 
-// Creating an event listener for String div
-
-// dets is an event object that contains the information about the mousemove event. 
-string.addEventListener("mousemove", function (dets) {
-    path= `M 10 100 Q ${dets.x} ${dets.y} 990 100`
-    gsap.to("svg path",{
-        // attr is used to get or set the value of an attribute on the selected element.
-        attr:{d:path},
-        durations:1.5,
-        ease:"power3.out",
-    })
-})
-
-// This method is used for  taking the string to its intial position when mouse leave.
-string.addEventListener("mouseleave", function(){
-gsap.to("svg path",{
-        attr:{d:finalpath},
-        duration:2,
+// Event listener for when the mouse leaves the string
+string.addEventListener("mouseleave", function() {
+    gsap.to("svg path", {
+        attr: { d: finalpath },
+        duration: 2.5,
         ease: "elastic.out"
-        
-    })
-})
+    });
+});

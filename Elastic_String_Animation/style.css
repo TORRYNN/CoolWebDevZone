@@ -1,21 +1,28 @@
-*{
+* {
     margin: 0;
     padding: 0;
     background-color: black;
 }
 
-h1{
-    padding-top:10px;
+h1 {
+    padding-top: 10px;
     text-align: center;
     color: white;
 }
+
 #string {
+    margin-top: 10px;
     width: 100%;
-    height: 40vh;
-    background-color: black;   
+    height: 50px; /* Height of the container */
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
 }
 
 svg {
-    display: block;
-    margin: 0 auto;
+    width: 100%; /* Full width of the container */
+    height: 50px; /* Thin string-like appearance */
+    
 }
